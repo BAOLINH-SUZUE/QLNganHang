@@ -40,14 +40,16 @@ namespace QLNganHang
             int sotien = int.Parse(txtST.Text);
             db.TinDungs.Where(tk => tk.MaTD == txtSoTD.Text).ToList().ForEach(tk => tk.NoTD -= sotien);
             KiemTraTD();
+            
             db.SubmitChanges();
         }
 
         private void btnCNNoXau_Click(object sender, EventArgs e)
         {
 
-            
+
            
+
             decimal notd = decimal.Parse(txtNoTD.Text);
             decimal noxau = decimal.Parse(txtNX.Text);
 
