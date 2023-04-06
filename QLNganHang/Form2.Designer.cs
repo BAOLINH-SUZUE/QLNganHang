@@ -1,5 +1,4 @@
-﻿
-namespace QLNganHang
+﻿namespace QLNganHang
 {
     partial class Form2
     {
