@@ -11,10 +11,10 @@ using System.Windows.Forms;
 namespace QLNganHang
 {
 
-    public partial class fTinDung : Form
+    public partial class fNoTinDung : Form
     {
         DataClasses1DataContext db = new DataClasses1DataContext();
-        public fTinDung()
+        public fNoTinDung()
         {
             InitializeComponent();
         }
@@ -40,7 +40,6 @@ namespace QLNganHang
             int sotien = int.Parse(txtST.Text);
             db.TinDungs.Where(tk => tk.MaTD == txtSoTD.Text).ToList().ForEach(tk => tk.NoTD -= sotien);
             KiemTraTD();
-            
             db.SubmitChanges();
         }
 

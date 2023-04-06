@@ -1,6 +1,6 @@
 ﻿namespace QLNganHang
 {
-    partial class fTinDung
+    partial class fNoTinDung
     {
         /// <summary>
         /// Required designer variable.

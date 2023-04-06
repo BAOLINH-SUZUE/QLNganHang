@@ -97,11 +97,11 @@
     <Compile Include="flogin.Designer.cs">
       <DependentUpon>flogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="fTinDung.cs">
+    <Compile Include="fNoTinDung.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fTinDung.Designer.cs">
-      <DependentUpon>fTinDung.cs</DependentUpon>
+    <Compile Include="fNoTinDung.Designer.cs">
+      <DependentUpon>fNoTinDung.cs</DependentUpon>
     </Compile>
     <Compile Include="GuiTien.cs">
       <SubType>Form</SubType>
@@ -140,8 +140,8 @@
     <EmbeddedResource Include="fNhanVien.resx">
       <DependentUpon>fNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fTinDung.resx">
-      <DependentUpon>fTinDung.cs</DependentUpon>
+    <EmbeddedResource Include="fNoTinDung.resx">
+      <DependentUpon>fNoTinDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GuiTien.resx">
       <DependentUpon>GuiTien.cs</DependentUpon>

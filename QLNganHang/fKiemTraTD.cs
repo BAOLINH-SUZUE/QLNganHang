@@ -136,7 +136,7 @@ namespace QLNganHang
         private void btnChuyen_Click(object sender, EventArgs e)
         {
             this.Hide();
-            fTinDung f = new fTinDung();
+            fNoTinDung f = new fNoTinDung();
             f.ShowDialog();
             this.Close();
         }

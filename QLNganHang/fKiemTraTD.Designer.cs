@@ -169,9 +169,9 @@
             // 
             this.btnChuyen.Location = new System.Drawing.Point(335, 370);
             this.btnChuyen.Name = "btnChuyen";
-            this.btnChuyen.Size = new System.Drawing.Size(108, 23);
+            this.btnChuyen.Size = new System.Drawing.Size(93, 23);
             this.btnChuyen.TabIndex = 15;
-            this.btnChuyen.Text = "Tin dung";
+            this.btnChuyen.Text = "No Tin Dung";
             this.btnChuyen.UseVisualStyleBackColor = true;
             this.btnChuyen.Click += new System.EventHandler(this.btnChuyen_Click);
             // 
