@@ -34,7 +34,7 @@ namespace QLNganHang
 
         private void KTbtn_Click(object sender, EventArgs e)
         {
-            DataClasses1DataContext NH = new DataClasses1DataContext();
+            DataQLNganHangDataContext NH = new DataQLNganHangDataContext();
             string d = STKtxt.Text;
             var item = (from u in NH.TaiKhoans
                         where u.SoTK == d
@@ -47,8 +47,9 @@ namespace QLNganHang
 
         private void Luubtn_Click(object sender, EventArgs e)
         {
-            DataClasses1DataContext NH = new DataClasses1DataContext();
+            DataQLNganHangDataContext NH = new DataQLNganHangDataContext();
             //TaiKhoan TK = new TaiKhoan();
+            //
             //LaiXuat LX = new LaiXuat();
             //TK.SoTK = Convert.ToString(STKtxt.Text);
             //TK.TenKH = TKHtxt.Text;

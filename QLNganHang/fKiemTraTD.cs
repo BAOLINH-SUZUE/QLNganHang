@@ -13,7 +13,7 @@ namespace QLNganHang
 {
     public partial class fKiemTraTD : Form
     {
-        DataClasses1DataContext db = new DataClasses1DataContext();
+        DataQLNganHangDataContext db = new DataQLNganHangDataContext();
 
         List<CheckBox> listCheckbox = new List<CheckBox>();
 
@@ -28,7 +28,7 @@ namespace QLNganHang
 
         private void fKiemTraTD_Load(object sender, EventArgs e)
         {
-            db = new DataClasses1DataContext();
+            db = new DataQLNganHangDataContext();
             gvTD.DataSource = db.TinDungs;
         }
 
