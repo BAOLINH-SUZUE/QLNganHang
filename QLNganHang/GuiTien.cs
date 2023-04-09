@@ -43,6 +43,7 @@ namespace QLNganHang
             tbxSDT.Text = item.SDT;
             tbxCCCD.Text = item.Cccd;
             tbxSoDU.Text = Convert.ToString(item.SoDu);
+            //
         }
 
         private void comboKyHan_SelectedIndexChanged(object sender, EventArgs e)
