@@ -26,5 +26,7 @@ namespace QLNganHang
             var item1 = (from u in db.TinDungs where u.Cccd == b select u);
             gvTinDung.DataSource = item1.ToList();
         }
+
+       
     }
 }
