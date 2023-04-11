@@ -57,5 +57,4 @@ namespace QLNganHang
             set { userName = value; }
         }
     }
-
 }

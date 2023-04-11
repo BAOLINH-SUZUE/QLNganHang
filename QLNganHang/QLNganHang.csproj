@@ -125,8 +125,10 @@
     <Compile Include="nhanVien.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="taiKhoan.cs" />
     <Compile Include="ThongTinKhacHang.cs" />
     <Compile Include="ThongTinKhacHangDAO.cs" />
+    <Compile Include="tinDungcs.cs" />
     <Compile Include="VayTien.cs">
       <SubType>Form</SubType>
     </Compile>
