@@ -103,18 +103,6 @@
     <Compile Include="fNoTinDung.Designer.cs">
       <DependentUpon>fNoTinDung.cs</DependentUpon>
     </Compile>
-    <Compile Include="fTaoTinDung.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fTaoTinDung.Designer.cs">
-      <DependentUpon>fTaoTinDung.cs</DependentUpon>
-    </Compile>
-    <Compile Include="fTinDung.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fTinDung.Designer.cs">
-      <DependentUpon>fTinDung.cs</DependentUpon>
-    </Compile>
     <Compile Include="GuiTien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,7 +116,7 @@
     <Compile Include="taiKhoan.cs" />
     <Compile Include="ThongTinKhacHang.cs" />
     <Compile Include="ThongTinKhacHangDAO.cs" />
-    <Compile Include="tinDungcs.cs" />
+    <Compile Include="tinDung.cs" />
     <Compile Include="VayTien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,12 +146,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fNoTinDung.resx">
       <DependentUpon>fNoTinDung.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="fTaoTinDung.resx">
-      <DependentUpon>fTaoTinDung.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="fTinDung.resx">
-      <DependentUpon>fTinDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GuiTien.resx">
       <DependentUpon>GuiTien.cs</DependentUpon>

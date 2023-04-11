@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace QLNganHang
 {
-    internal class tinDungcs
+    internal class tinDung
     {
         public string MaTD;
         public string TenKH;
@@ -23,7 +23,7 @@ namespace QLNganHang
         public SqlMoney NoXau;
         public string SoLan;
 
-        public tinDungcs(string matd, string tenkh, SqlMoney thunhap, string cccd, string loaithe, string hangmuc, DateTime ngaytra, float laixuattd, SqlMoney notd, SqlMoney noxau, string solan)
+        public tinDung(string matd, string tenkh, SqlMoney thunhap, string cccd, string loaithe, string hangmuc, DateTime ngaytra, float laixuattd, SqlMoney notd, SqlMoney noxau, string solan)
         {
             MaTD = matd;
             TenKH = tenkh;
