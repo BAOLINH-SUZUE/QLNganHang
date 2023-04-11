@@ -30,12 +30,12 @@ namespace QLNganHang
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertAccount(Account instance);
+    partial void UpdateAccount(Account instance);
+    partial void DeleteAccount(Account instance);
     partial void InsertKhachHang(KhachHang instance);
     partial void UpdateKhachHang(KhachHang instance);
     partial void DeleteKhachHang(KhachHang instance);
-    partial void InsertLoaiTheTinDung(LoaiTheTinDung instance);
-    partial void UpdateLoaiTheTinDung(LoaiTheTinDung instance);
-    partial void DeleteLoaiTheTinDung(LoaiTheTinDung instance);
     partial void InsertNhanVien(NhanVien instance);
     partial void UpdateNhanVien(NhanVien instance);
     partial void DeleteNhanVien(NhanVien instance);
@@ -51,7 +51,7 @@ namespace QLNganHang
     #endregion
 		
 		public DataQLNganHangDataContext() : 
-				base(global::QLNganHang.Properties.Settings.Default.QLNganHangConnectionString1, mappingSource)
+				base(global::QLNganHang.Properties.Settings.Default.QLNganHangConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -80,6 +80,14 @@ namespace QLNganHang
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<Account> Accounts
+		{
+			get
+			{
+				return this.GetTable<Account>();
+			}
+		}
+		
 		public System.Data.Linq.Table<KhachHang> KhachHangs
 		{
 			get
@@ -93,14 +101,6 @@ namespace QLNganHang
 			get
 			{
 				return this.GetTable<LaiXuat>();
-			}
-		}
-		
-		public System.Data.Linq.Table<LoaiTheTinDung> LoaiTheTinDungs
-		{
-			get
-			{
-				return this.GetTable<LoaiTheTinDung>();
 			}
 		}
 		
@@ -157,6 +157,148 @@ namespace QLNganHang
 			get
 			{
 				return this.GetTable<View_SoTietKiem>();
+			}
+		}
+		
+		public System.Data.Linq.Table<View_VayTien> View_VayTiens
+		{
+			get
+			{
+				return this.GetTable<View_VayTien>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Account")]
+	public partial class Account : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _UserName;
+		
+		private string _CitizenID;
+		
+		private string _PassWord;
+		
+		private int _Type;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUserNameChanging(string value);
+    partial void OnUserNameChanged();
+    partial void OnCitizenIDChanging(string value);
+    partial void OnCitizenIDChanged();
+    partial void OnPassWordChanging(string value);
+    partial void OnPassWordChanged();
+    partial void OnTypeChanging(int value);
+    partial void OnTypeChanged();
+    #endregion
+		
+		public Account()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this.OnUserNameChanging(value);
+					this.SendPropertyChanging();
+					this._UserName = value;
+					this.SendPropertyChanged("UserName");
+					this.OnUserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CitizenID", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string CitizenID
+		{
+			get
+			{
+				return this._CitizenID;
+			}
+			set
+			{
+				if ((this._CitizenID != value))
+				{
+					this.OnCitizenIDChanging(value);
+					this.SendPropertyChanging();
+					this._CitizenID = value;
+					this.SendPropertyChanged("CitizenID");
+					this.OnCitizenIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PassWord", DbType="NVarChar(1000) NOT NULL", CanBeNull=false)]
+		public string PassWord
+		{
+			get
+			{
+				return this._PassWord;
+			}
+			set
+			{
+				if ((this._PassWord != value))
+				{
+					this.OnPassWordChanging(value);
+					this.SendPropertyChanging();
+					this._PassWord = value;
+					this.SendPropertyChanged("PassWord");
+					this.OnPassWordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="Int NOT NULL")]
+		public int Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this.OnTypeChanging(value);
+					this.SendPropertyChanging();
+					this._Type = value;
+					this.SendPropertyChanged("Type");
+					this.OnTypeChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -454,164 +596,6 @@ namespace QLNganHang
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LoaiTheTinDung")]
-	public partial class LoaiTheTinDung : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MaLoaiThe;
-		
-		private string _TenThe;
-		
-		private decimal _HanMucToiThieu;
-		
-		private decimal _HanMucToiDa;
-		
-		private decimal _LaiXuatNoXau;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaLoaiTheChanging(string value);
-    partial void OnMaLoaiTheChanged();
-    partial void OnTenTheChanging(string value);
-    partial void OnTenTheChanged();
-    partial void OnHanMucToiThieuChanging(decimal value);
-    partial void OnHanMucToiThieuChanged();
-    partial void OnHanMucToiDaChanging(decimal value);
-    partial void OnHanMucToiDaChanged();
-    partial void OnLaiXuatNoXauChanging(decimal value);
-    partial void OnLaiXuatNoXauChanged();
-    #endregion
-		
-		public LoaiTheTinDung()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLoaiThe", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MaLoaiThe
-		{
-			get
-			{
-				return this._MaLoaiThe;
-			}
-			set
-			{
-				if ((this._MaLoaiThe != value))
-				{
-					this.OnMaLoaiTheChanging(value);
-					this.SendPropertyChanging();
-					this._MaLoaiThe = value;
-					this.SendPropertyChanged("MaLoaiThe");
-					this.OnMaLoaiTheChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenThe", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string TenThe
-		{
-			get
-			{
-				return this._TenThe;
-			}
-			set
-			{
-				if ((this._TenThe != value))
-				{
-					this.OnTenTheChanging(value);
-					this.SendPropertyChanging();
-					this._TenThe = value;
-					this.SendPropertyChanged("TenThe");
-					this.OnTenTheChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HanMucToiThieu", DbType="Money NOT NULL")]
-		public decimal HanMucToiThieu
-		{
-			get
-			{
-				return this._HanMucToiThieu;
-			}
-			set
-			{
-				if ((this._HanMucToiThieu != value))
-				{
-					this.OnHanMucToiThieuChanging(value);
-					this.SendPropertyChanging();
-					this._HanMucToiThieu = value;
-					this.SendPropertyChanged("HanMucToiThieu");
-					this.OnHanMucToiThieuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HanMucToiDa", DbType="Money NOT NULL")]
-		public decimal HanMucToiDa
-		{
-			get
-			{
-				return this._HanMucToiDa;
-			}
-			set
-			{
-				if ((this._HanMucToiDa != value))
-				{
-					this.OnHanMucToiDaChanging(value);
-					this.SendPropertyChanging();
-					this._HanMucToiDa = value;
-					this.SendPropertyChanged("HanMucToiDa");
-					this.OnHanMucToiDaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LaiXuatNoXau", DbType="Decimal(4,2) NOT NULL")]
-		public decimal LaiXuatNoXau
-		{
-			get
-			{
-				return this._LaiXuatNoXau;
-			}
-			set
-			{
-				if ((this._LaiXuatNoXau != value))
-				{
-					this.OnLaiXuatNoXauChanging(value);
-					this.SendPropertyChanging();
-					this._LaiXuatNoXau = value;
-					this.SendPropertyChanged("LaiXuatNoXau");
-					this.OnLaiXuatNoXauChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NhanVien")]
 	public partial class NhanVien : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -830,6 +814,10 @@ namespace QLNganHang
 		
 		private string _MaKH;
 		
+		private string _SDT;
+		
+		private string _Cccd;
+		
 		private System.Nullable<decimal> _TienGui;
 		
 		private System.DateTime _NgayGui;
@@ -850,6 +838,10 @@ namespace QLNganHang
     partial void OnTenKHChanged();
     partial void OnMaKHChanging(string value);
     partial void OnMaKHChanged();
+    partial void OnSDTChanging(string value);
+    partial void OnSDTChanged();
+    partial void OnCccdChanging(string value);
+    partial void OnCccdChanged();
     partial void OnTienGuiChanging(System.Nullable<decimal> value);
     partial void OnTienGuiChanged();
     partial void OnNgayGuiChanging(System.DateTime value);
@@ -923,6 +915,46 @@ namespace QLNganHang
 					this._MaKH = value;
 					this.SendPropertyChanged("MaKH");
 					this.OnMaKHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string SDT
+		{
+			get
+			{
+				return this._SDT;
+			}
+			set
+			{
+				if ((this._SDT != value))
+				{
+					this.OnSDTChanging(value);
+					this.SendPropertyChanging();
+					this._SDT = value;
+					this.SendPropertyChanged("SDT");
+					this.OnSDTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cccd", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Cccd
+		{
+			get
+			{
+				return this._Cccd;
+			}
+			set
+			{
+				if ((this._Cccd != value))
+				{
+					this.OnCccdChanging(value);
+					this.SendPropertyChanging();
+					this._Cccd = value;
+					this.SendPropertyChanged("Cccd");
+					this.OnCccdChanged();
 				}
 			}
 		}
@@ -1584,44 +1616,32 @@ namespace QLNganHang
 	public partial class View_GuiTien
 	{
 		
-		private string _MaSo;
-		
 		private System.Nullable<decimal> _TienGui;
+		
+		private System.DateTime _NgayGui;
 		
 		private int _KyHan;
 		
 		private decimal _LaiXuat;
 		
-		private string _MaKH;
+		private string _SoTKhoanTK;
+		
+		private string _MaSo;
 		
 		private string _TenKH;
 		
-		private System.DateTime _NgayGui;
-		
-		private string _SoTKhoanTK;
+		private string _MaKH;
 		
 		private string _SDT;
 		
 		private string _Cccd;
 		
+		private string _Expr1;
+		
+		private string _Expr2;
+		
 		public View_GuiTien()
 		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSo", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string MaSo
-		{
-			get
-			{
-				return this._MaSo;
-			}
-			set
-			{
-				if ((this._MaSo != value))
-				{
-					this._MaSo = value;
-				}
-			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TienGui", DbType="Money")]
@@ -1636,6 +1656,22 @@ namespace QLNganHang
 				if ((this._TienGui != value))
 				{
 					this._TienGui = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayGui", DbType="Date NOT NULL")]
+		public System.DateTime NgayGui
+		{
+			get
+			{
+				return this._NgayGui;
+			}
+			set
+			{
+				if ((this._NgayGui != value))
+				{
+					this._NgayGui = value;
 				}
 			}
 		}
@@ -1672,18 +1708,34 @@ namespace QLNganHang
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKH", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string MaKH
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoTKhoanTK", DbType="VarChar(255)")]
+		public string SoTKhoanTK
 		{
 			get
 			{
-				return this._MaKH;
+				return this._SoTKhoanTK;
 			}
 			set
 			{
-				if ((this._MaKH != value))
+				if ((this._SoTKhoanTK != value))
 				{
-					this._MaKH = value;
+					this._SoTKhoanTK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSo", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string MaSo
+		{
+			get
+			{
+				return this._MaSo;
+			}
+			set
+			{
+				if ((this._MaSo != value))
+				{
+					this._MaSo = value;
 				}
 			}
 		}
@@ -1704,34 +1756,18 @@ namespace QLNganHang
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayGui", DbType="Date NOT NULL")]
-		public System.DateTime NgayGui
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKH", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string MaKH
 		{
 			get
 			{
-				return this._NgayGui;
+				return this._MaKH;
 			}
 			set
 			{
-				if ((this._NgayGui != value))
+				if ((this._MaKH != value))
 				{
-					this._NgayGui = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoTKhoanTK", DbType="VarChar(255)")]
-		public string SoTKhoanTK
-		{
-			get
-			{
-				return this._SoTKhoanTK;
-			}
-			set
-			{
-				if ((this._SoTKhoanTK != value))
-				{
-					this._SoTKhoanTK = value;
+					this._MaKH = value;
 				}
 			}
 		}
@@ -1764,6 +1800,38 @@ namespace QLNganHang
 				if ((this._Cccd != value))
 				{
 					this._Cccd = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Expr1", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Expr1
+		{
+			get
+			{
+				return this._Expr1;
+			}
+			set
+			{
+				if ((this._Expr1 != value))
+				{
+					this._Expr1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Expr2", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Expr2
+		{
+			get
+			{
+				return this._Expr2;
+			}
+			set
+			{
+				if ((this._Expr2 != value))
+				{
+					this._Expr2 = value;
 				}
 			}
 		}
@@ -2142,6 +2210,195 @@ namespace QLNganHang
 				if ((this._SoTKhoanTK != value))
 				{
 					this._SoTKhoanTK = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.View_VayTien")]
+	public partial class View_VayTien
+	{
+		
+		private string _SoTK;
+		
+		private string _SoTKhoanTK;
+		
+		private string _MaKH;
+		
+		private string _TenKH;
+		
+		private string _SDT;
+		
+		private string _Cccd;
+		
+		private decimal _SoDu;
+		
+		private decimal _SoTienVay;
+		
+		private decimal _LaiXuatVay;
+		
+		private int _KyHan;
+		
+		public View_VayTien()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoTK", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string SoTK
+		{
+			get
+			{
+				return this._SoTK;
+			}
+			set
+			{
+				if ((this._SoTK != value))
+				{
+					this._SoTK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoTKhoanTK", DbType="VarChar(255)")]
+		public string SoTKhoanTK
+		{
+			get
+			{
+				return this._SoTKhoanTK;
+			}
+			set
+			{
+				if ((this._SoTKhoanTK != value))
+				{
+					this._SoTKhoanTK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKH", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string MaKH
+		{
+			get
+			{
+				return this._MaKH;
+			}
+			set
+			{
+				if ((this._MaKH != value))
+				{
+					this._MaKH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenKH", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string TenKH
+		{
+			get
+			{
+				return this._TenKH;
+			}
+			set
+			{
+				if ((this._TenKH != value))
+				{
+					this._TenKH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string SDT
+		{
+			get
+			{
+				return this._SDT;
+			}
+			set
+			{
+				if ((this._SDT != value))
+				{
+					this._SDT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cccd", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Cccd
+		{
+			get
+			{
+				return this._Cccd;
+			}
+			set
+			{
+				if ((this._Cccd != value))
+				{
+					this._Cccd = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoDu", DbType="Money NOT NULL")]
+		public decimal SoDu
+		{
+			get
+			{
+				return this._SoDu;
+			}
+			set
+			{
+				if ((this._SoDu != value))
+				{
+					this._SoDu = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoTienVay", DbType="Money NOT NULL")]
+		public decimal SoTienVay
+		{
+			get
+			{
+				return this._SoTienVay;
+			}
+			set
+			{
+				if ((this._SoTienVay != value))
+				{
+					this._SoTienVay = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LaiXuatVay", DbType="Decimal(4,2) NOT NULL")]
+		public decimal LaiXuatVay
+		{
+			get
+			{
+				return this._LaiXuatVay;
+			}
+			set
+			{
+				if ((this._LaiXuatVay != value))
+				{
+					this._LaiXuatVay = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KyHan", DbType="Int NOT NULL")]
+		public int KyHan
+		{
+			get
+			{
+				return this._KyHan;
+			}
+			set
+			{
+				if ((this._KyHan != value))
+				{
+					this._KyHan = value;
 				}
 			}
 		}
