@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="account.cs" />
+    <Compile Include="Account.cs" />
     <Compile Include="AccountDAO.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="DataQLNganHang.designer.cs">
