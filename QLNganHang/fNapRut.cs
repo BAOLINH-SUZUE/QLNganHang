@@ -12,7 +12,7 @@ namespace QLNganHang
 {
     public partial class fNapRut : Form
     {
-        DataClasses1DataContext db = new DataClasses1DataContext();
+        DataQLNganHangDataContext db = new DataQLNganHangDataContext();
         public fNapRut()
         {
             InitializeComponent();

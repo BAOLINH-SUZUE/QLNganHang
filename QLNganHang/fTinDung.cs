@@ -12,7 +12,7 @@ namespace QLNganHang
 {
     public partial class fTinDung : Form
     {
-        DataClasses1DataContext db = new DataClasses1DataContext();
+        DataQLNganHangDataContext db = new DataQLNganHangDataContext();
         public fTinDung()
         {
             InitializeComponent();
@@ -20,7 +20,7 @@ namespace QLNganHang
 
         private void fTinDung_Load(object sender, EventArgs e)
         {
-            db = new DataClasses1DataContext();
+            db = new DataQLNganHangDataContext();
             gvKhachHang.DataSource = db.KhachHangs;
         }
 

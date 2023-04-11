@@ -13,7 +13,7 @@ namespace QLNganHang
 
     public partial class fNoTinDung : Form
     {
-        DataClasses1DataContext db = new DataClasses1DataContext();
+        DataQLNganHangDataContext db = new DataQLNganHangDataContext();
         public fNoTinDung()
         {
             InitializeComponent();

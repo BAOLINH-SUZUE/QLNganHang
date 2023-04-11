@@ -13,7 +13,7 @@ namespace QLNganHang
 {
     public partial class fNhanVien : Form
     {
-        DataClasses1DataContext db = new DataClasses1DataContext();
+        DataQLNganHangDataContext db = new DataQLNganHangDataContext();
 
 
         private Account loginAccount;
@@ -40,7 +40,7 @@ namespace QLNganHang
            
             try
             {
-                var data = db.View_KhacHangs.Select(View_KhacHang => new
+                var data = db.View_KhachHangs.Select(View_KhacHang => new
                 {
                     View_KhacHang.MaKH,
                     View_KhacHang.TenKH,
@@ -70,7 +70,7 @@ namespace QLNganHang
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            var Lst = (from Cccd in db.View_KhacHangs where Cccd.Cccd.Contains(txbNhapCccd.Text) select Cccd).ToList();
+            var Lst = (from Cccd in db.View_KhachHangs where Cccd.Cccd.Contains(txbNhapCccd.Text) select Cccd).ToList();
             dataGridView1.DataSource = Lst;
 
         }
@@ -78,7 +78,7 @@ namespace QLNganHang
         {
            
             fChuyenTien f =new fChuyenTien();
-            string nt = db.View_KhacHangs.Where(p => p.Cccd == txbNhapCccd.Text).Select(p => p.SoTK).FirstOrDefault();
+            string nt = db.View_KhachHangs.Where(p => p.Cccd == txbNhapCccd.Text).Select(p => p.SoTK).FirstOrDefault();
             f.TextBoxValue = nt;
             f.ShowDialog();
             

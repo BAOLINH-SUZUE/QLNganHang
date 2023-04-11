@@ -15,7 +15,7 @@ namespace QLNganHang
 {
     public partial class fChuyenTien : Form
     {
-        DataClasses1DataContext db = new DataClasses1DataContext();
+        DataQLNganHangDataContext db = new DataQLNganHangDataContext();
         public fChuyenTien()
         {
             InitializeComponent();
@@ -37,11 +37,11 @@ namespace QLNganHang
         }
         void Check()
         {
-            var Lst = (from tkc in db.View_KhacHangs where tkc.SoTK.Contains(txbTkChuyen.Text) select tkc).ToList();
+            var Lst = (from tkc in db.View_KhachHangs where tkc.SoTK.Contains(txbTkChuyen.Text) select tkc).ToList();
             gvChuyentien.DataSource = Lst;
 
 
-            var nt = (from tkn in db.View_KhacHangs where tkn.SoTK.Contains(txbTkNhan.Text) select tkn).ToList();
+            var nt = (from tkn in db.View_KhachHangs where tkn.SoTK.Contains(txbTkNhan.Text) select tkn).ToList();
             gvNhanTien.DataSource = nt;
 
         }
@@ -50,7 +50,7 @@ namespace QLNganHang
 
             try
             {
-                var data = db.View_KhacHangs.Select(View_KhacHang => new
+                var data = db.View_KhachHangs.Select(View_KhacHang => new
                 {
                     View_KhacHang.Cccd,
                     View_KhacHang.MaKH,

@@ -49,12 +49,12 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="AccountDAO.cs" />
+    <Compile Include="DataProvider.cs" />
     <Compile Include="DataQLNganHang.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataQLNganHang.dbml</DependentUpon>
     </Compile>
-    <Compile Include="DataProvider.cs" />
     <Compile Include="fAccountProfile.cs">
       <SubType>Form</SubType>
     </Compile>
