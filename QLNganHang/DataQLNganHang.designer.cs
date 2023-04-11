@@ -30,9 +30,9 @@ namespace QLNganHang
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertAccount(Account instance);
-    partial void UpdateAccount(Account instance);
-    partial void DeleteAccount(Account instance);
+    partial void InsertAccount(ccount instance);
+    partial void UpdateAccount(ccount instance);
+    partial void DeleteAccount(ccount instance);
     partial void InsertKhachHang(KhachHang instance);
     partial void UpdateKhachHang(KhachHang instance);
     partial void DeleteKhachHang(KhachHang instance);
@@ -80,11 +80,11 @@ namespace QLNganHang
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Account> Accounts
+		public System.Data.Linq.Table<ccount> Accounts
 		{
 			get
 			{
-				return this.GetTable<Account>();
+				return this.GetTable<ccount>();
 			}
 		}
 		
@@ -170,7 +170,7 @@ namespace QLNganHang
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Account")]
-	public partial class Account : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class ccount : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -197,7 +197,7 @@ namespace QLNganHang
     partial void OnTypeChanged();
     #endregion
 		
-		public Account()
+		public ccount()
 		{
 			OnCreated();
 		}

@@ -13,14 +13,14 @@ namespace QLNganHang
     public partial class fAccountProfile : Form
     {
 
-        private Account loginAccount;
+        private ccount loginAccount;
 
-        public Account LoginAccount
+        public ccount LoginAccount
         {
             get { return loginAccount; }
             set { loginAccount = value; ChangeAccount(loginAccount); }
         }
-        public fAccountProfile(Account acc)
+        public fAccountProfile(ccount acc)
         {
             InitializeComponent();
 
@@ -28,7 +28,7 @@ namespace QLNganHang
         
         }
 
-        void ChangeAccount(Account acc)
+        void ChangeAccount(ccount acc)
         {
             txbUserName.Text = LoginAccount.UserName;
             txbCitizenID.Text = LoginAccount.CitizenID ;
@@ -94,15 +94,15 @@ namespace QLNganHang
     }
     public class AccountEvent : EventArgs
     {
-        private Account acc;
+        private ccount acc;
 
-        public Account Acc
+        public ccount Acc
         {
             get { return acc; }
             set { acc = value; }
         }
 
-        public AccountEvent(Account acc)
+        public AccountEvent(ccount acc)
         {
             this.Acc = acc;
         }

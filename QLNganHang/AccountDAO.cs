@@ -41,13 +41,13 @@ namespace QLNganHang
             return DataProvider.Instance.ExecuteQuery("SELECT UserName, CitizenID, Type FROM dbo.Account");
         }
 
-        public Account GetAccountByUserName(string userName)
+        public ccount GetAccountByUserName(string userName)
         {
             DataTable data = DataProvider.Instance.ExecuteQuery("Select * from account where userName = '" + userName + "'");
 
             foreach (DataRow item in data.Rows)
             {
-                return new Account(item);
+                return new ccount(item);
             }
 
             return null;

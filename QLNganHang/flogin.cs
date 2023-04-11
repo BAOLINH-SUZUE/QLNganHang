@@ -24,7 +24,7 @@ namespace QLNganHang
             string passWord = txbPassWord.Text;
             if (Login(userName, passWord))
             {
-                Account loginAccount = AccountDAO.Instance.GetAccountByUserName(userName);
+                ccount loginAccount = AccountDAO.Instance.GetAccountByUserName(userName);
                 if (loginAccount.Type == 0)
                 {
                    fKhachHang f = new fKhachHang(loginAccount);

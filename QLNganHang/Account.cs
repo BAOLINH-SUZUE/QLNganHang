@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace QLNganHang
 {
-    public class Account
+    internal class account
     {
-        public Account(string userName, string citizenID, int type, string password = null)
+        public account(string userName, string citizenID, int type, string password = null)
         {
             this.UserName = userName;
             this.CitizenID = citizenID;
@@ -17,7 +17,7 @@ namespace QLNganHang
             this.Password = password;
         }
 
-        public Account(DataRow row)
+        public account(DataRow row)
         {
             this.UserName = row["userName"].ToString();
             this.CitizenID = row["citizenID"].ToString();

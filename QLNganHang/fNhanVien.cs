@@ -16,14 +16,14 @@ namespace QLNganHang
         DataQLNganHangDataContext db = new DataQLNganHangDataContext();
 
 
-        private Account loginAccount;
+        private ccount loginAccount;
 
-        public Account LoginAccount
+        public ccount LoginAccount
         {
             get { return loginAccount; }
             set { loginAccount = value; ChangeAccount(loginAccount.Type); }
         }
-        public fNhanVien(Account acc)
+        public fNhanVien(ccount acc)
         {
             InitializeComponent();
             this.LoginAccount = acc;

@@ -16,14 +16,14 @@ namespace QLNganHang
 
         DataQLNganHangDataContext db = new DataQLNganHangDataContext();
         string nt;
-        private Account loginAccount;
+        private ccount loginAccount;
 
-        public Account LoginAccount
+        public ccount LoginAccount
         {
             get { return loginAccount; }
             set { loginAccount = value; }
         }
-        public fKhachHang(Account acc)
+        public fKhachHang(ccount acc)
         {
             InitializeComponent();
             loginAccount = acc;
