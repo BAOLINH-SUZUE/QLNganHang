@@ -47,7 +47,7 @@ namespace QLNganHang
 
             foreach (DataRow item in data.Rows)
             {
-                return new Account(item);
+                //return new Account(item);
             }
 
             return null;
